@@ -51,5 +51,17 @@
                 <input type="submit" name="save" value="Guardar figura">
             </div>
         </form>
+        <script>
+            let myCanvas = document.getElementById('myCanvas').getContext('2d');
+            let form = document.getElementById("forms");
+            let formValue =  form.value
+            form.onchange = function(){setForm()};
+            console.log(formValue);
+
+            function setForm(){
+                formValue = form.value;
+                console.log(formValue);
+            }
+        </script>
     </body>
 </html>
