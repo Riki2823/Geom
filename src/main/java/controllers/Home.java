@@ -43,10 +43,10 @@ public class Home extends HttpServlet {
 
         if (username.equals("")){
             req.setAttribute("stateUN", "Porfavor introduce un usuario");
-            state = true;
         }else {
             req.setAttribute("stateUN", "Bienvenido " + session.getAttribute("username"));
             resp.sendRedirect("/figures");
+            state = true;
             return;
         }
 
