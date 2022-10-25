@@ -1,5 +1,8 @@
 package controllers;
 
+import model.User;
+import services.UserService;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,8 +17,11 @@ public class Figures extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-
-        req.setAttribute("name", session.getAttribute("username"));
+        int id = (Integer) session.getAttribute("userId");
+        User user = UserService.getUserById(id);
+        System.out.println(user.getName());
+        System.out.println(user.getId());
+        req.setAttribute("name", user.getName());
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/figures.jsp");
         dispatcher.forward(req, resp);
