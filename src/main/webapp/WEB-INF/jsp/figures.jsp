@@ -26,8 +26,8 @@
             <br>
             <div id="form">
                 <label for="cordX">Cordenadas: </label>
-                <input type="number" name="cordX" placeholder="X">
-                <input type="number" name="cordY" placeholder="Y">
+                <input type="number" name="cordX" id="cordX" placeholder="X">
+                <input type="number" name="cordY" id="cordY" placeholder="Y">
                 <br>
                 <br>
                 <label for="forms">Elige la forma a dibujar: </label>
@@ -45,22 +45,60 @@
                 <br>
                 <br>
                 <label for="figureName">Nombre de la figura: </label>
-                <input type="text" placeholder="Introduce el nombre de tu figura: " name="figureName" id?"figureName">
+                <input type="text" id="figureName" placeholder="Introduce el nombre de tu figura: " name="figureName" id?"figureName">
                 <br>
                 <br>
                 <input type="submit" name="save" value="Guardar figura">
+                <input type="button" name="draw" onclick="mainFunction()" value="Preview">
             </div>
         </form>
         <script>
-            let myCanvas = document.getElementById('myCanvas').getContext('2d');
-            let form = document.getElementById("forms");
-            let formValue =  form.value
-            form.onchange = function(){setForm()};
-            console.log(formValue);
-
-            function setForm(){
-                formValue = form.value;
+            function mainFunction(){
+                let myCanvas = document.getElementById('myCanvas').getContext('2d');
+                let form = document.getElementById("forms");
+                let formValue =  form.value
+                form.onchange = function(){setForm()};
                 console.log(formValue);
+
+                switch (formValue){
+                    case 'circle':
+                        makeCircle();
+                        break;
+                    case 'square':
+                         makeSquare();
+                         break;
+                    case 'triangle':
+                        makeTriangle();
+                        break;
+                    case 'pentagon':
+                        makePentagon();
+                        break;
+                    case 'star7':
+                        makeStar();
+                        break;
+                    default:
+                        console.log('Form not suported');
+                }
+                function setForm(){
+                    formValue = form.value;
+                    console.log(formValue);
+                }
+                function makeCircle(){
+                    console.log('You r on circle');
+                }
+
+                function makeSquare(){
+                    console.log('You r on Square');
+                }
+                function makeTriangle(){
+                    console.log('You r on triangle');
+                }
+                function makePentagon(){
+                    console.log('You r on Pentagon');
+                }
+                function makeStar(){
+                    console.log('You r on Star');
+                }
             }
         </script>
     </body>
