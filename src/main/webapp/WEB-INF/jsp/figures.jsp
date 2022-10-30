@@ -41,7 +41,7 @@
                 <br>
                 <br>
                 <label for="size">Tamaño: </label>
-                <input type="range" min="0" max="100" value="15" name="size" id="size"/>
+                <input type="range" min="0" max="300" value="0" name="size" id="size"/>
                 <br>
                 <br>
                 <label for="figureName">Nombre de la figura: </label>
@@ -54,7 +54,8 @@
         </form>
         <script>
             function mainFunction(){
-                let myCanvas = document.getElementById('myCanvas').getContext('2d');
+                let myCanvas = document.getElementById('myCanvas');
+                let ctx = myCanvas.getContext('2d');
                 let form = document.getElementById("forms");
                 let formValue =  form.value
                 form.onchange = function(){setForm()};
@@ -84,7 +85,17 @@
                     console.log(formValue);
                 }
                 function makeCircle(){
-                    console.log('You r on circle');
+                    ctx.clearRect (0, 0, 800, 600);
+                    ctx.beginPath ();
+
+                    let x = document.getElementById("cordX").value;
+                    let y = document.getElementById("cordY").value;
+                    let r = document.getElementById("size").value;
+
+                    ctx.beginPath();
+                    ctx.arc(x,y,r, 0, 2 * Math.PI, false);
+                    ctx.lineWidth = 3;
+                    ctx.stroke();
                 }
 
                 function makeSquare(){
