@@ -53,63 +53,108 @@
             </div>
         </form>
         <script>
+            let myCanvas = document.getElementById('myCanvas');
+            let ctx = myCanvas.getContext('2d');
+
+
+            let form = document.getElementById("forms");
+            let formValue =  form.value;
+            form.onchange = function(){setForm()};
+            console.log(formValue);
+            switch (formValue){
+                case 'circle':
+                   myCanvas.addEventListener("click", (event) => {
+                        const rect = myCanvas.getBoundingClientRect()
+                        const x = event.clientX - rect.left
+                        const y = event.clientY - rect.top
+                        ctx.clearRect (0, 0, 800, 600);
+                        let r = document.getElementById("size").value;
+
+                        ctx.beginPath();
+                        ctx.arc(x, y, r, 0, 2 * Math.PI);
+                        ctx.lineWidth = 3;
+                        ctx.stroke();
+                        ctx.closePath();
+                    });
+                    break;
+                case 'square':
+                    myCanvas.addEventListener("click", (event) => {
+                        makeSquare();
+                    });
+                    break;
+                case 'triangle':
+                    myCanvas.addEventListener("click", (event) => {
+                        makeTriangle();
+                    });
+                    break;
+                case 'pentagon':
+                    myCanvas.addEventListener("click", (event) => {
+                        makePentagon();
+                    });
+                    break;
+                case 'star7':
+                    myCanvas.addEventListener("click", (event) => {
+                        makeStar();
+                    });
+                    break;
+                default:
+                    console.log('Form not suported');
+            }
+
             function mainFunction(){
-                let myCanvas = document.getElementById('myCanvas');
-                let ctx = myCanvas.getContext('2d');
-                let form = document.getElementById("forms");
-                let formValue =  form.value
-                form.onchange = function(){setForm()};
-                console.log(formValue);
+
 
                 switch (formValue){
-                    case 'circle':
-                        makeCircle();
-                        break;
-                    case 'square':
-                         makeSquare();
-                         break;
-                    case 'triangle':
-                        makeTriangle();
-                        break;
-                    case 'pentagon':
-                        makePentagon();
-                        break;
-                    case 'star7':
-                        makeStar();
-                        break;
-                    default:
-                        console.log('Form not suported');
-                }
-                function setForm(){
-                    formValue = form.value;
-                    console.log(formValue);
-                }
-                function makeCircle(){
-                    ctx.clearRect (0, 0, 800, 600);
-                    ctx.beginPath ();
+                case 'circle':
+                    makeCircle();
+                    break;
+                case 'square':
+                    makeSquare();
+                    break;
+                case 'triangle':
+                    makeTriangle();
+                    break;
+                case 'pentagon':
+                    makePentagon();
+                    break;
+                case 'star7':
+                    makeStar();
+                    break;
+                default:
+                    console.log('Form not suported');
+            }
 
-                    let x = document.getElementById("cordX").value;
-                    let y = document.getElementById("cordY").value;
-                    let r = document.getElementById("size").value;
+            function setForm(){
+                formValue = form.value;
+                console.log(formValue);
+            }
 
-                    ctx.beginPath();
-                    ctx.arc(x,y,r, 0, 2 * Math.PI, false);
-                    ctx.lineWidth = 3;
-                    ctx.stroke();
-                }
+            function makeCircle(){
+                ctx.clearRect (0, 0, 800, 600);
+                ctx.beginPath ();
 
-                function makeSquare(){
-                    console.log('You r on Square');
-                }
-                function makeTriangle(){
-                    console.log('You r on triangle');
-                }
-                function makePentagon(){
-                    console.log('You r on Pentagon');
-                }
-                function makeStar(){
-                    console.log('You r on Star');
-                }
+                let x = document.getElementById("cordX").value;
+                let y = document.getElementById("cordY").value;
+                let r = document.getElementById("size").value;
+
+                ctx.beginPath();
+                ctx.arc(x,y,r, 0, 2 * Math.PI, false);
+                ctx.lineWidth = 3;
+                ctx.stroke();
+            }
+
+            function makeSquare(){
+                console.log('You r on Square');
+            }
+            function makeTriangle(){
+                console.log('You r on triangle');
+            }
+            function makePentagon(){
+                console.log('You r on Pentagon');
+            }
+            function makeStar(){
+                console.log('You r on Star');
+            }
             }
         </script>
     </body>
