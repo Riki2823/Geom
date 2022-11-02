@@ -60,10 +60,17 @@
             let form = document.getElementById("forms");
             let formValue =  form.value;
             form.onchange = function(){setForm()};
+
+            function setForm(){
+                formValue = form.value;
+                console.log(formValue);
+            }
+
             console.log(formValue);
-            switch (formValue){
-                case 'circle':
-                   myCanvas.addEventListener("click", (event) => {
+            myCanvas.addEventListener("click", (event) => {
+                switch (formValue){
+                    case 'circle':
+                    
                         const rect = myCanvas.getBoundingClientRect()
                         const x = event.clientX - rect.left
                         const y = event.clientY - rect.top
@@ -75,32 +82,26 @@
                         ctx.lineWidth = 3;
                         ctx.stroke();
                         ctx.closePath();
-                    });
-                    break;
-                case 'square':
-                    myCanvas.addEventListener("click", (event) => {
-                        makeSquare();
-                    });
-                    break;
-                case 'triangle':
-                    myCanvas.addEventListener("click", (event) => {
-                        makeTriangle();
-                    });
-                    break;
-                case 'pentagon':
-                    myCanvas.addEventListener("click", (event) => {
-                        makePentagon();
-                    });
-                    break;
-                case 'star7':
-                    myCanvas.addEventListener("click", (event) => {
-                        makeStar();
-                    });
-                    break;
-                default:
-                    console.log('Form not suported');
-            }
+                    
+                        break;
+                    case 'square':                    
+                            console.log("XD")
+                        break;
+                    case 'triangle':
+                            makeTriangle();
+                        break;
+                    case 'pentagon':
+                            makePentagon();
+                        break;
+                    case 'star7':                        
+                            makeStar();
+                        break;
+                    default:
+                        console.log('Form not suported');
+                }
 
+            });
+                
             function mainFunction(){
 
 
@@ -122,11 +123,6 @@
                     break;
                 default:
                     console.log('Form not suported');
-            }
-
-            function setForm(){
-                formValue = form.value;
-                console.log(formValue);
             }
 
             function makeCircle(){
