@@ -22,7 +22,7 @@
         <br>
         <br>
         <form method="post" action="/figures">
-            <canvas id="myCanvas" width="800" height="600" style="border:2px solid #000000;"></canvas>
+            <canvas id="myCanvas" width="1024" height="768" style="border:2px solid #000000;"></canvas>
             <br>
             <div id="form">
                 <label for="cordX">Cordenadas: </label>
@@ -52,7 +52,7 @@
                 <br>
                 <br>
                 <label for="size">Tamaño: </label>
-                <input type="range" min="0" max="300" value="20" name="size" id="size"/>
+                <input type="range" min="0" max="500" value="20" name="size" id="size"/>
                 <br>
                 <br>
                 <label for="figureName">Nombre de la figura: </label>
@@ -120,7 +120,7 @@
             let rect = myCanvas.getBoundingClientRect();
             let x = event.clientX - rect.left;
             let y = event.clientY - rect.top;
-            ctx.clearRect (0, 0, 800, 600);
+            ctx.clearRect (0, 0, 1024, 768);
             let r = document.getElementById("size").value;
                 switch (formValue){
 
@@ -135,36 +135,28 @@
                     
                         break;
                     case 'square':
-                            ctx.beginPath();
-                            ctx.rect(x-r, y-r, r*2, r*2);
-                            ctx.lineWidth = 3;
-                            ctx.stroke();
-                            ctx.fillStyle = theColor;
-                            ctx.fill();
-                            ctx.closePath();
+                        ctx.beginPath();
+                        ctx.rect(x-r, y-r, r*2, r*2);
+                        ctx.lineWidth = 3;
+                        ctx.stroke();
+                        ctx.fillStyle = theColor;
+                        ctx.fill();
+                        ctx.closePath();
                         break;
                     case 'triangle':
-
-                            console.log(x);
-                            console.log(y);
-                            console.log(r);
-
-
-                            let altura = Math.sqrt(Math.pow(r, 2) - Math.pow((r/2), 2));
-
-                            console.log(altura);
-
-                            ctx.beginPath();
-                            ctx.moveTo(x, y  - (altura/2));
-                            ctx.lineTo(x + (r/2), y + (altura/2));
-                            ctx.lineTo(x - (r/2), y + (altura/2));
-                            ctx.lineTo(x, y  - (altura/2));
-                            ctx.lineWidth = 3;
-                            ctx.stroke();
-                            ctx.fillStyle = theColor;
-                            ctx.fill();
-                            
-                            break;
+                        let altura = Math.sqrt(Math.pow(r, 2) - Math.pow((r/2), 2));
+                        
+                        ctx.beginPath();
+                        ctx.moveTo(x, y  - (altura/2));
+                        ctx.lineTo(x + (r/2), y + (altura/2));
+                        ctx.lineTo(x - (r/2), y + (altura/2));
+                        ctx.lineTo(x, y  - (altura/2));
+                        ctx.lineWidth = 3;
+                        ctx.stroke();
+                        ctx.fillStyle = theColor;
+                        ctx.fill();
+                        
+                        break;
                     case 'pentagon':
                             makePentagon();
                         break;
@@ -181,6 +173,7 @@
                 let x = Number(document.getElementById("cordX").value);
                 let y = Number(document.getElementById("cordY").value);
                 let r = document.getElementById("size").value;
+                ctx.clearRect (0, 0, 1024, 768);
 
                 switch (formValue){
                 case 'circle':
@@ -204,7 +197,6 @@
             
 
                 function makeCircle(){
-                    ctx.clearRect (0, 0, 800, 600);
                     ctx.beginPath ();
     
                     ctx.beginPath();
@@ -217,7 +209,6 @@
                 }
     
                 function makeSquare(){
-                    ctx.clearRect(0,0,800,600);
                     ctx.beginPath();
     
                     ctx.beginPath();
@@ -230,16 +221,9 @@
     
                 }
                 function makeTriangle(){
-                    ctx.clearRect (0, 0, 800, 600);
-
-
-
-                    console.log(r);
 
                     let altura = Math.sqrt(Math.pow(r, 2) - Math.pow((r/2), 2));
                     
-                    console.log(altura);
-
                     ctx.beginPath();
                     ctx.moveTo(x, y  - (altura/2));
                     ctx.lineTo(x + (r/2), y + (altura/2));
