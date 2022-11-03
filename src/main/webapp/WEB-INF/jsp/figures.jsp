@@ -144,9 +144,27 @@
                             ctx.closePath();
                         break;
                     case 'triangle':
-                            let altura = Math.pow(r, 2) - Math.pow((r/2), 2);
+
+                            console.log(x);
+                            console.log(y);
+                            console.log(r);
+
+
+                            let altura = Math.sqrt(Math.pow(r, 2) - Math.pow((r/2), 2));
+
                             console.log(altura);
-                        break;
+
+                            ctx.beginPath();
+                            ctx.moveTo(x, y  - (altura/2));
+                            ctx.lineTo(x + (r/2), y + (altura/2));
+                            ctx.lineTo(x - (r/2), y + (altura/2));
+                            ctx.lineTo(x, y  - (altura/2));
+                            ctx.lineWidth = 3;
+                            ctx.stroke();
+                            ctx.fillStyle = theColor;
+                            ctx.fill();
+                            
+                            break;
                     case 'pentagon':
                             makePentagon();
                         break;
@@ -160,8 +178,8 @@
             });
                 
             function mainFunction(){
-                let x = document.getElementById("cordX").value;
-                let y = document.getElementById("cordY").value;
+                let x = Number(document.getElementById("cordX").value);
+                let y = Number(document.getElementById("cordY").value);
                 let r = document.getElementById("size").value;
 
                 switch (formValue){
@@ -212,7 +230,28 @@
     
                 }
                 function makeTriangle(){
-                    console.log('You r on triangle');
+                    ctx.clearRect (0, 0, 800, 600);
+
+
+
+                    console.log(r);
+
+                    let altura = Math.sqrt(Math.pow(r, 2) - Math.pow((r/2), 2));
+                    
+                    console.log(altura);
+
+                    ctx.beginPath();
+                    ctx.moveTo(x, y  - (altura/2));
+                    ctx.lineTo(x + (r/2), y + (altura/2));
+                    ctx.lineTo(x - (r/2), y + (altura/2));
+                    ctx.lineTo(x, y  - (altura/2));
+                    ctx.lineWidth = 3;
+                    ctx.stroke();
+                    ctx.fillStyle = theColor;
+                    ctx.fill();
+                    ctx.closePath();
+
+                
                 }
                 function makePentagon(){
                     console.log('You r on Pentagon');
