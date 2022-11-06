@@ -5,7 +5,7 @@ import model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAo {
+public class UserDao {
     private static int id = 0;
     private static List<User> usuarios = new ArrayList<User>();
 

@@ -1,10 +1,10 @@
 package services;
 
-import DAO.UserDAo;
+import DAO.UserDao;
 import model.User;
 
 public class UserService {
-    static UserDAo userDao = new UserDAo();
+    static UserDao userDao = new UserDao();
 
     public static User getUserById(int id) {
         User user = userDao.getUserById(id);
@@ -16,4 +16,5 @@ public class UserService {
         int id = userDao.insertUser(user);
         return user;
     }
+
 }
