@@ -1,6 +1,8 @@
 package controllers;
 
+import model.Figure;
 import model.User;
+import services.FigureService;
 import services.UserService;
 
 import javax.servlet.RequestDispatcher;
@@ -29,9 +31,25 @@ public class Figures extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        int idUser = (Integer) session.getAttribute("userId");
+        User propietary = UserService.getUserById(idUser);
 
+        double cordX = Double.parseDouble(req.getParameter("cordX"));
+        double cordY = Double.parseDouble(req.getParameter("cordY"));
 
+        String type = req.getParameter("forms");
+        String color = req.getParameter("colors");
 
+        double size = Double.parseDouble(req.getParameter("size"));
+
+        String title = req.getParameter("figureName");
+
+        FigureService.newFigure(title, cordX, cordY, size, propietary, type, color);
+
+        System.out.println(FigureService.getFigureById(propietary));
+
+        req.setAttribute("name", propietary.getName());
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/figures.jsp");
         dispatcher.forward(req, resp);
     }

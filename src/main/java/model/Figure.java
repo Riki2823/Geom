@@ -5,21 +5,32 @@ public class Figure {
     public enum Form{CIRCLE, SQUARE, TRIANGLE, PENTAGON, STAR7}
 
     private String title;
-    private int cordX;
-    private int cordY;
-    private int size;
+    private double cordX;
+    private double cordY;
+    private double size;
     private User propietari;
     private Form form;
 
+    String color;
     private int id;
 
-    public Figure(String title, int cordX, int cordY, int size, User propietari, int id) {
+    public Figure(String title, double cordX, double cordY, double size, User propietari, String type, String color) {
         this.title = title;
         this.cordX = cordX;
         this.cordY = cordY;
         this.size = size;
         this.propietari = propietari;
-        this.id = id;
+        this.form = setForm(type);
+        this.color = color;
+
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public int getId() {
@@ -38,7 +49,7 @@ public class Figure {
         this.title = title;
     }
 
-    public int getCordX() {
+    public double getCordX() {
         return cordX;
     }
 
@@ -46,7 +57,7 @@ public class Figure {
         this.cordX = cordX;
     }
 
-    public int getCordY() {
+    public double getCordY() {
         return cordY;
     }
 
@@ -54,7 +65,7 @@ public class Figure {
         this.cordY = cordY;
     }
 
-    public int getSize() {
+    public double getSize() {
         return size;
     }
 
@@ -74,7 +85,33 @@ public class Figure {
         return form;
     }
 
-    public void setForm(Form form) {
-        this.form = form;
+    public Form setForm(String type) {
+        if ("circle".equals(type)) {
+            return Form.CIRCLE;
+        } else if ("square".equals(type)) {
+            return Form.SQUARE;
+        } else if ("triangle".equals(type)) {
+            return Form.TRIANGLE;
+        } else if ("pentagon".equals(type)) {
+            return Form.PENTAGON;
+        } else if ("star7".equals(type)) {
+            return Form.STAR7;
+        } else {
+            System.out.println("Figure not registered");
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Figure{" +
+                "title='" + title + '\'' +
+                ", cordX=" + cordX +
+                ", cordY=" + cordY +
+                ", size=" + size +
+                ", propietari=" + propietari +
+                ", form=" + form +
+                ", id=" + id +
+                '}';
     }
 }

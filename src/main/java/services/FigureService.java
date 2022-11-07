@@ -8,13 +8,13 @@ public class FigureService {
     static FigureDao figureDao = new FigureDao();
 
     static int variableNameId = 1;
-    public static void newFigure(String title, int cordX, int cordY, int size, User user, int id, String type){
-        if (title == null){
+    public static void newFigure(String title, double cordX, double cordY, double size, User user,  String type, String color){
+        if (title.equals("")){
             title = type + variableNameId;
             variableNameId++;
         }
 
-        Figure figure = new Figure(title, cordX, cordY, size, user, id);
+        Figure figure = new Figure(title, cordX, cordY, size, user, type, color);
         figureDao.insertFigure(figure);
     }
 

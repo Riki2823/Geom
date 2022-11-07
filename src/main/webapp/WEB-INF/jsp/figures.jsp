@@ -117,11 +117,16 @@
 
             console.log(formValue);
             myCanvas.addEventListener("click", (event) => {
-            let rect = myCanvas.getBoundingClientRect();
-            let x = event.clientX - rect.left;
-            let y = event.clientY - rect.top;
-            ctx.clearRect (0, 0, 1024, 768);
-            let r = document.getElementById("size").value;
+
+                let rect = myCanvas.getBoundingClientRect();
+                let x = event.clientX - rect.left;
+                let y = event.clientY - rect.top;
+
+                document.getElementById("cordX").value = x;
+                document.getElementById("cordY").value = Math.trunc(y);
+
+                ctx.clearRect (0, 0, 1024, 768);
+                let r = document.getElementById("size").value;
                 switch (formValue){
 
                     case 'circle':
