@@ -10,9 +10,8 @@ public class FigureDao {
     private static int id = 0;
     private static List<Figure> figures = new ArrayList<Figure>();
 
-    public void insertFigure(Figure figure, User user){
+    public void insertFigure(Figure figure){
         figure.setId(id);
-        figure.setPropietari(user);
         figures.add(figure);
         id++;
     }

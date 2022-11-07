@@ -13,6 +13,15 @@ public class Figure {
 
     private int id;
 
+    public Figure(String title, int cordX, int cordY, int size, User propietari, int id) {
+        this.title = title;
+        this.cordX = cordX;
+        this.cordY = cordY;
+        this.size = size;
+        this.propietari = propietari;
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
