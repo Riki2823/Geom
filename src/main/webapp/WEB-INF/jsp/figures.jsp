@@ -17,7 +17,7 @@
     </head>
     <body>
         <h1>Buenas ${name}!!! Bienvenido a la plataforma de creación y almacenamiento de figuras</h1>
-        <a href="/myList">Ir a mi lista de figuras</a>
+        <a href="/userList">Ir a mi lista de figuras</a>
         <a href="/generalList">Ir a la lista general de figuras</a>
         <br>
         <br>

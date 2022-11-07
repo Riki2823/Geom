@@ -24,7 +24,7 @@ public class FigureService {
         return figureDao.getFigureById(id);
     }
 
-    public static List<Figure> getFigureById(User user){
+    public static List<Figure> getFiguresByPropietary(User user){
         return figureDao.getFiguresByPropietary(user);
     }
 }
