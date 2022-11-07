@@ -4,6 +4,8 @@ import DAO.FigureDao;
 import model.Figure;
 import model.User;
 
+import java.util.List;
+
 public class FigureService {
     static FigureDao figureDao = new FigureDao();
 
@@ -22,7 +24,7 @@ public class FigureService {
         return figureDao.getFigureById(id);
     }
 
-    public static Figure getFigureById(User user){
-        return figureDao.getFigureByPropietary(user);
+    public static List<Figure> getFigureById(User user){
+        return figureDao.getFiguresByPropietary(user);
     }
 }

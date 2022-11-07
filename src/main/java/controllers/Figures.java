@@ -1,6 +1,5 @@
 package controllers;
 
-import model.Figure;
 import model.User;
 import services.FigureService;
 import services.UserService;
@@ -46,8 +45,6 @@ public class Figures extends HttpServlet {
         String title = req.getParameter("figureName");
 
         FigureService.newFigure(title, cordX, cordY, size, propietary, type, color);
-
-        System.out.println(FigureService.getFigureById(propietary));
 
         req.setAttribute("name", propietary.getName());
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/figures.jsp");

@@ -7,13 +7,12 @@ public class UserService {
     static UserDao userDao = new UserDao();
 
     public static User getUserById(int id) {
-        User user = userDao.getUserById(id);
-        return user;
+        return userDao.getUserById(id);
     }
 
     public User newUser(String username) {
         User user = new User(username);
-        int id = userDao.insertUser(user);
+        userDao.insertUser(user);
         return user;
     }
 

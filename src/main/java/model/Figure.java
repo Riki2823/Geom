@@ -9,7 +9,7 @@ public class Figure {
     private double cordY;
     private double size;
     private User propietari;
-    private Form form;
+    private final Form form;
 
     String color;
     private int id;

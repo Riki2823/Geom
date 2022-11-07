@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UserDao {
     private static int id = 0;
-    private static List<User> usuarios = new ArrayList<User>();
+    private static final List<User> usuarios = new ArrayList<User>();
 
     public int insertUser(User user){
         user.setId(id);
