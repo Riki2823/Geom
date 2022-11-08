@@ -21,7 +21,7 @@ public class Figure {
         this.size = size;
         this.propietari = propietari;
         this.form = setForm(type);
-        this.color = color;
+        this.color = setColor(color);
 
     }
 
@@ -29,8 +29,8 @@ public class Figure {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public String setColor(String color) {
+        return color.toUpperCase().charAt(0) + color.substring(1, color.length()).toLowerCase();
     }
 
     public int getId() {

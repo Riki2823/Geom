@@ -7,23 +7,60 @@
         <title>Main Menu</title>
         <style>
             #form{
-               margin-top: 5%;
                padding: 2%;
                background-color: black;
                border-radius: 10px;
                color: white;
+               margin: 5%;
+            }
+
+            #title{
+                background-color: black;
+                color: white;
+                margin: 5%;
+                padding: 2%;
+                text-align: center;
+                border-radius: 5px;
+            }
+
+            #navBar{
+                display: flex;
+                justify-content: space-around;
+                background-color: black;
+                padding: 2%;
+                margin: 15%;
+                margin-top:5%;
+                margin-bottom: 5%;
+                border-radius: 5px;
+            }
+            #navBar a{
+                text-decoration:none;
+                color: white;
+            }
+            canvas{
+                margin: 5%;
+            }
+            #message{
+                margin: 5%;
+                padding: 2%;
+                background-color: black;
+                color: white;
+                border-radius: 5px;
             }
         </style>
     </head>
     <body>
-        <h1>Buenas ${name}!!! Bienvenido a la plataforma de creación y almacenamiento de figuras</h1>
-        <a href="/userList">Ir a mi lista de figuras</a>
-        <a href="/generalList">Ir a la lista general de figuras</a>
+        <h1 id="title">Buenas ${name}!!! Bienvenido a la plataforma de creación y almacenamiento de figuras</h1>
+        <nav id="navBar">
+            <a href="/userList">Ir a mi lista de figuras</a>
+            <a href="/generalList">Ir a la lista general de figuras</a>
+        </nav>
         <br>
+        <br>
+        <p id="message">Configura tu figura y generala haciendo click en la zona marcada o utiliza la opcion de previsualizacion antes de enviar</p>
+        <canvas id="myCanvas" width="1024" height="768" style="border:2px solid #000000;"></canvas>
         <br>
         <form method="post" action="/figures">
-            <canvas id="myCanvas" width="1024" height="768" style="border:2px solid #000000;"></canvas>
-            <br>
             <div id="form">
                 <label for="cordX">Cordenadas: </label>
                 <input type="number" name="cordX" id="cordX" placeholder="X">
@@ -63,6 +100,7 @@
                 <input type="button" name="draw" onclick="mainFunction()" value="Preview">
             </div>
         </form>
+        
         <script>
             let myCanvas = document.getElementById('myCanvas');
             let ctx = myCanvas.getContext('2d');
@@ -122,7 +160,7 @@
                 let x = event.clientX - rect.left;
                 let y = event.clientY - rect.top;
 
-                document.getElementById("cordX").value = x;
+                document.getElementById("cordX").value = Math.trunc(x);
                 document.getElementById("cordY").value = Math.trunc(y);
 
                 ctx.clearRect (0, 0, 1024, 768);
