@@ -26,6 +26,9 @@ public class FigureDao {
         return figure;
     }
 
+    public List<Figure> getAllFigures(){
+        return figures;
+    }
     public List<Figure> getFiguresByPropietary(User user){
         List<Figure> figuresUser = new ArrayList<Figure>();
         for(Figure f: figures){

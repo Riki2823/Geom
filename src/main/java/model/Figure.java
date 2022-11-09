@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 public class Figure {
 
     public enum Form{CIRCLE, SQUARE, TRIANGLE, PENTAGON, STAR7}
@@ -10,8 +12,9 @@ public class Figure {
     private double size;
     private User propietari;
     private final Form form;
+    private Date creationDate;
 
-    String color;
+    private String color;
     private int id;
 
     public Figure(String title, double cordX, double cordY, double size, User propietari, String type, String color) {

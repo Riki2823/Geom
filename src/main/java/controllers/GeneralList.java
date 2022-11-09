@@ -15,17 +15,20 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/userList")
-public class UserList extends HttpServlet {
+@WebServlet("/generalList")
+public class GeneralList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         int userId = (Integer) session.getAttribute("userId");
         User user = UserService.getUserById(userId);
-        List<Figure> userFigures = FigureService.getFiguresByPropietary(user);
-        req.setAttribute("userFigures", userFigures);
+
         req.setAttribute("name", user.getName());
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/userList.jsp");
+        List<Figure> figuras = FigureService.getAllFigures();
+
+        req.setAttribute("listaFiguras", figuras);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/generalList.jsp");
         dispatcher.forward(req, resp);
+
     }
 }

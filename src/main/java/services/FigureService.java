@@ -9,11 +9,9 @@ import java.util.List;
 public class FigureService {
     static FigureDao figureDao = new FigureDao();
 
-    static int variableNameId = 1;
     public static void newFigure(String title, double cordX, double cordY, double size, User user,  String type, String color){
         if (title.equals("")){
-            title = type + variableNameId;
-            variableNameId++;
+            title = type + (int)((Math.random() * 100 + 1) + 1);
         }
 
         Figure figure = new Figure(title, cordX, cordY, size, user, type, color);
@@ -26,5 +24,9 @@ public class FigureService {
 
     public static List<Figure> getFiguresByPropietary(User user){
         return figureDao.getFiguresByPropietary(user);
+    }
+
+    public static List<Figure> getAllFigures(){
+        return figureDao.getAllFigures();
     }
 }

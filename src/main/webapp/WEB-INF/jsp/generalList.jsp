@@ -5,7 +5,7 @@
 
 <html>
     <head>
-        <title>Private List</title>
+        <title>Public List</title>
 
         <style>
             h1{
@@ -38,14 +38,6 @@
                 border-radius: 5px;
                 font-size: 20px;
             }
-
-            #notFigures a{
-                padding: 2%;
-                background-color: white;
-                color: black;
-                border-radius: 5px;
-                margin-right: 2%;
-            }
             table{
                 border-collapse: collapse;
             }
@@ -69,24 +61,27 @@
     </head>
     <body>
         <c:choose>
-            <c:when test="${empty userFigures}">
-                <p id="notFigures" >De momento no tienes figuras, vuelve a <a href="/figures">la pagina de creacion de figuras</a></p>
+            <c:when test="${empty listaFiguras}">
+                <a href="http://localhost:8080"><button style="background-color: white;" type="button" onClick="goHome()"><img alt="Go Home" src="https://www.svgrepo.com/show/14443/home.svg" width="30" height="30"></button></a>
+                <p id="notFigures" >De momento ningun usuario ha creado imagenes</p>
             </c:when>
             <c:otherwise>
                 <a href="http://localhost:8080"><button style="background-color: white;" type="button" onClick="goHome()"><img alt="Go Home" src="https://www.svgrepo.com/show/14443/home.svg" width="30" height="30"></button></a>
-                <h1> ${name}, esta es tu lista personal de figuras, aqui podrás visualizar y eliminar las figuras creadas con anterioridad </h1>
+                <h1> ${name}, esta es la lista con todas las imagenes creadas por ti y otros usuarios de la plataforma </h1>
                 <table>
                     <tr>
                         <th>Titulo de la figura</th>
                         <th>Color de la figura</th>
                         <th>Forma de la figura</th>
+                        <th>Propietario</th>
                         <th>Opciones</th>
                     </tr>
-                    <c:forEach items="${userFigures}" var="figure">
+                    <c:forEach items="${listaFiguras}" var="figure">
                         <tr>
                             <td>Titulo: <c:out value="${figure.title}"/></td>
                             <td>Color: <c:out value="${figure.color}"/></td>
                             <td>Foma: <c:out value="${figure.form}"/></td>
+                            <td>Propietario: <c:out value="${figure.propietari.name}"/></td>
                             <td id="buttons"><button id="seeFigure" onClick="redirect()">Visualiza tu imagen</button><button id="seeFigure" onClick="redirect()">Eliminar Imagen</button></td>
                         </tr>
                     </c:forEach>
@@ -94,8 +89,5 @@
             </c:otherwise>
 
         </c:choose>
-        <script>
-
-        </script>
     </body>
 </html>
