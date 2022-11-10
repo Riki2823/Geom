@@ -87,7 +87,7 @@
                             <td>Titulo: <c:out value="${figure.title}"/></td>
                             <td>Color: <c:out value="${figure.color}"/></td>
                             <td>Foma: <c:out value="${figure.form}"/></td>
-                            <td id="buttons"><button id="seeFigure" onClick="redirect()">Visualiza tu imagen</button><button id="seeFigure" onClick="redirect()">Eliminar Imagen</button></td>
+                            <td><form action="/verFigura" method="post"><input name="figureId" type="hidden">${figure.id}</input></form></td>
                         </tr>
                     </c:forEach>
                 </table>

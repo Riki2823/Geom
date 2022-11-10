@@ -82,13 +82,13 @@
             <container>
               <containerId>tomcat7x</containerId>
               <type>installed</type>
-              <!-- <home>C:\Users\ricar\Desktop\Docker\Tommcat</home> -->
-              <home>/home/ricardo/Escritorio/Docker/TestTomcat/</home>
-            </container>
-            <configuration>
-              <type>existing</type>
-              <!-- <home>C:\Users\ricar\Desktop\Docker\Tommcat</home> -->
-              <home>/home/ricardo/Escritorio/Docker/TestTomcat/</home>
+              <home>C:\Users\ricar\Desktop\Docker\Tommcat</home>
+              <!--<home>/home/ricardo/Escritorio/Docker/TestTomcat/</home>-->
+          </container>
+          <configuration>
+            <type>existing</type>
+            <home>C:\Users\ricar\Desktop\Docker\Tommcat</home>
+            <!--<home>/home/ricardo/Escritorio/Docker/TestTomcat/</home>-->
             </configuration>
           </configuration>
         </plugin>
