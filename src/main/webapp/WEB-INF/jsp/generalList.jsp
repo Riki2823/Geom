@@ -45,17 +45,32 @@
                 background-color: #fca404;
             }
 
-            button{
+            input{
+                all: unset;
+                cursor: pointer;
+            }
+            .button{
                 margin: 2%;
                 background-color: black;
                 color: white;
                 border-radius: 20px;
-                padding: 2%;
+                padding: 5%;
             }
 
-            button:hover{
+            .button:hover{
                 background-color: white;
-                color: black;            
+                color: black;
+                border: 2px solid black;
+
+            }
+
+            button{
+                margin: 5%;
+                background-color: black;
+                color: white;
+                border-radius: 20px;
+                padding: 2%;
+                margin-bottom: 2%;
             }
         </style>
     </head>
@@ -82,12 +97,22 @@
                             <td>Color: <c:out value="${figure.color}"/></td>
                             <td>Foma: <c:out value="${figure.form}"/></td>
                             <td>Propietario: <c:out value="${figure.propietari.name}"/></td>
-                            <td id="buttons"><button id="seeFigure" onClick="redirect()">Visualiza tu imagen</button><button id="seeFigure" onClick="redirect()">Eliminar Imagen</button></td>
+                            <td>
+                                <form class="button" action="/verFigura" method="post">
+                                    <input  type="submit" value="Ver Figura"></input>
+                                    <input name="figureId" type="hidden" value="${figure.id}"></input>
+                                </form>
+                                <c:if test="${figure.propietari.id == userId}">  
+                                    <form class="button" action="/generalList" method="post">
+                                            <input type="submit" value="Eliminar Figura">
+                                            <input name="figureId" type="hidden" value="${figure.id}"></input>
+                                    </form>       
+                                </c:if>                       
+                            </td>
                         </tr>
                     </c:forEach>
                 </table>
             </c:otherwise>
-
         </c:choose>
     </body>
 </html>

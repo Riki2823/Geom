@@ -29,4 +29,9 @@ public class FigureService {
     public static List<Figure> getAllFigures(){
         return figureDao.getAllFigures();
     }
+
+    public static void removeFigure(int id){
+        FigureDao.removeFigure(id);
+
+    }
 }

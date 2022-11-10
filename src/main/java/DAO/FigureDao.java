@@ -39,5 +39,16 @@ public class FigureDao {
         return figuresUser;
     }
 
+    public static void removeFigure(int id){
+        int index = -1;
+        for(Figure f: figures){
+            if (f.getId() == id){
+                index = figures.indexOf(f);
+            }
+        }
+        if (index != -1){
+            figures.remove(index);
+        }
+    }
 
 }

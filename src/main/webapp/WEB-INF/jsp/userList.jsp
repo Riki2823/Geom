@@ -14,7 +14,7 @@
             table {
                 font-family: arial, sans-serif;
                 border-collapse: collapse;
-                margin: 5%;
+                margin: 25%;
             }
     
             td, th {
@@ -53,18 +53,34 @@
                 background-color: #fca404;
             }
 
-            button{
+            input{
+                all: unset;
+                cursor: pointer;
+            }
+            .button{
                 margin: 2%;
                 background-color: black;
                 color: white;
                 border-radius: 20px;
-                padding: 2%;
+                padding: 5%;
             }
 
-            button:hover{
+            .button:hover{
                 background-color: white;
-                color: black;            
+                color: black;
+                border: 2px solid black;
+
             }
+
+            button{
+                margin: 5%;
+                background-color: black;
+                color: white;
+                border-radius: 20px;
+                padding: 2%;
+                margin-bottom: 2%;
+            }
+
         </style>
     </head>
     <body>
@@ -87,15 +103,23 @@
                             <td>Titulo: <c:out value="${figure.title}"/></td>
                             <td>Color: <c:out value="${figure.color}"/></td>
                             <td>Foma: <c:out value="${figure.form}"/></td>
-                            <td><form action="/verFigura" method="post"><input name="figureId" type="hidden">${figure.id}</input></form></td>
+                            <td>
+                            
+                                <form class="button" action="/verFigura" method="post">
+                                    <input  type="submit" value="Ver Figura"></input>
+                                    <input name="figureId" type="hidden" value="${figure.id}"></input>
+                                </form>
+
+                                <form class="button" action="/userList" method="post">
+                                    <input type="submit" value="Eliminar Figura"></input>
+                                    <input name="figureId" type="hidden" value="${figure.id}"></input>
+                                </form>
+                            </td>
                         </tr>
                     </c:forEach>
                 </table>
             </c:otherwise>
 
         </c:choose>
-        <script>
-
-        </script>
     </body>
 </html>
