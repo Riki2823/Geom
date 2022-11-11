@@ -105,7 +105,7 @@
                             <td>Foma: <c:out value="${figure.form}"/></td>
                             <td>
                             
-                                <form class="button" action="/seeFigure" method="post">
+                                <form class="button" action="/seeFigure" method="get">
                                     <input  type="submit" value="Ver Figura"></input>
                                     <input name="figureId" type="hidden" value="${figure.id}"></input>
                                 </form>
