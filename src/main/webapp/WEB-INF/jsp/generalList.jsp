@@ -30,8 +30,8 @@
             #notFigures{
                 background-color: black;
                 color: white;
-                margin-top: 15%;
-                margin-bottom: 15%;
+                margin-top: 5%;
+                margin-bottom: 5%;
                 margin-left: 5%;
                 margin-right: 5%;
                 padding: 5%;
@@ -98,7 +98,7 @@
                             <td>Foma: <c:out value="${figure.form}"/></td>
                             <td>Propietario: <c:out value="${figure.propietari.name}"/></td>
                             <td>
-                                <form class="button" action="/verFigura" method="post">
+                                <form class="button" action="/seeFigure" method="get">
                                     <input  type="submit" value="Ver Figura"></input>
                                     <input name="figureId" type="hidden" value="${figure.id}"></input>
                                 </form>

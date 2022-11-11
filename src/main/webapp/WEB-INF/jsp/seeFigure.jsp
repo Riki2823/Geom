@@ -5,13 +5,9 @@
 
 <html>
     <head>
-        <title>${title}</title>
-
-        <style>
-
-        </style>
+        <title>Public List</title>
     </head>
     <body>
-
+       <h1>Hello World!</h1>
     </body>
 </html>

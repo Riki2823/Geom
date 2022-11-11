@@ -14,7 +14,7 @@
             table {
                 font-family: arial, sans-serif;
                 border-collapse: collapse;
-                margin: 25%;
+                margin: 5%;
             }
     
             td, th {
@@ -30,8 +30,8 @@
             #notFigures{
                 background-color: black;
                 color: white;
-                margin-top: 15%;
-                margin-bottom: 15%;
+                margin-top: 5%;
+                margin-bottom: 5%;
                 margin-left: 5%;
                 margin-right: 5%;
                 padding: 5%;
@@ -105,7 +105,7 @@
                             <td>Foma: <c:out value="${figure.form}"/></td>
                             <td>
                             
-                                <form class="button" action="/viewFigure" method="get">
+                                <form class="button" action="/seeFigure" method="post">
                                     <input  type="submit" value="Ver Figura"></input>
                                     <input name="figureId" type="hidden" value="${figure.id}"></input>
                                 </form>
