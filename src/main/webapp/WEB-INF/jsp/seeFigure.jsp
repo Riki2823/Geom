@@ -60,11 +60,13 @@
         let myCanvas = document.getElementById('myCanvas');
         let ctx = myCanvas.getContext('2d');
         let rect = myCanvas.getBoundingClientRect();
+
         let formValue = "${type}" ;
         let x = Number("${cordX}");
         let y = Number("${cordY}") ;
         let r = "${size}" ;
         let theColor = "${color}" ;
+
         switch (formValue){ 
             case 'CIRCLE':
                 ctx.beginPath();
