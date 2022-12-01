@@ -34,9 +34,9 @@
     </dependency>
 
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.31</version>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>31.1-jre</version>
     </dependency>
 
   </dependencies>
@@ -82,17 +82,29 @@
             <container>
               <containerId>tomcat7x</containerId>
               <type>installed</type>
-              <!--<home>C:\Users\ricar\Desktop\Docker\Tommcat</home>-->
-              <home>/home/ricardo/Escritorio/Docker/TestTomcat/</home>
+              <!--<home>C:\Users\ricar\Desktop\Docker\Tommcat2</home> -->
+              <home>C:\Users\Ricardo\Desktop\Docker\Tommcat2</home>
+              <!-- <home>/home/ricardo/Escritorio/Docker/TestTomcat/</home> -->
             </container>
-          <configuration>
-            <type>existing</type>
-            <!--<home>C:\Users\ricar\Desktop\Docker\Tommcat</home>-->
-            <home>/home/ricardo/Escritorio/Docker/TestTomcat/</home>
-          </configuration>
+            <configuration>
+              <type>existing</type>
+              <!--<home>C:\Users\ricar\Desktop\Docker\Tommcat2</home> -->
+              <home>C:\Users\Ricardo\Desktop\Docker\Tommcat2</home>
+              <!-- <home>/home/ricardo/Escritorio/Docker/TestTomcat/</home> -->
+            </configuration>
           </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>6</source>
+          <target>6</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

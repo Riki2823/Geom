@@ -106,6 +106,7 @@
                                     <form class="button" action="/generalList" method="post">
                                             <input type="submit" value="Eliminar Figura">
                                             <input name="figureId" type="hidden" value="${figure.id}"></input>
+                                            <input type="hidden" name="csrftoken" value="${csrftoken}">
                                     </form>       
                                 </c:if>                       
                             </td>
